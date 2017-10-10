@@ -40,4 +40,14 @@ public class Body implements IProductPart{
     public void setBodyColor(String bodyColor) {
         this.bodyColor = bodyColor;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Body{");
+        sb.append("bodyCode=").append(bodyCode);
+        sb.append(", bodyType='").append(bodyType).append('\'');
+        sb.append(", bodyColor='").append(bodyColor).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

@@ -41,4 +41,14 @@ public class Engine implements IProductPart {
     public void setPower(int power) {
         this.power = power;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Engine{");
+        sb.append("fuelType='").append(fuelType).append('\'');
+        sb.append(", volume=").append(volume);
+        sb.append(", power=").append(power);
+        sb.append('}');
+        return sb.toString();
+    }
 }

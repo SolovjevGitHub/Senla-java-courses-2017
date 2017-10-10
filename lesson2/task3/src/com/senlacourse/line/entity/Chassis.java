@@ -30,4 +30,13 @@ public class Chassis implements IProductPart {
     public void setChassisMaker(String chassisMaker) {
         this.chassisMaker = chassisMaker;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Chassis{");
+        sb.append("chassisNumber=").append(chassisNumber);
+        sb.append(", chassisMaker='").append(chassisMaker).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

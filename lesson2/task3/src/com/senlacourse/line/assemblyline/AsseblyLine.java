@@ -14,19 +14,22 @@ import com.senlacourse.line.entity.Product;
 public class AsseblyLine implements IAssemblyLine {
     @Override
     public IProduct assembleProduct(IProduct iProduct) {
+        Product product=(Product)iProduct;
 
         BodyLineStep bodyLineStep = new BodyLineStep();
         ChassisLineStep chassisLineStep = new ChassisLineStep();
         EngineLineStep engineLineStep = new EngineLineStep();
+
         Body body = (Body) bodyLineStep.buildProductPart();
         Chassis chassis = (Chassis) chassisLineStep.buildProductPart();
         Engine engine = (Engine) engineLineStep.buildProductPart();
 
-        iProduct.installFirstPart(body);
-        iProduct.installSecondPart(chassis);
-        iProduct.installThirdtPart(engine);
+        product.installFirstPart(body);
+        product.installSecondPart(chassis);
+        product.installThirdtPart(engine);
 
         System.out.println("Product is created!");
+        System.out.println(product.toString());
 
         return new Product();
     }
