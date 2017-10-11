@@ -12,13 +12,25 @@ import com.senlacourse.line.entity.Product;
  * Author: Solovjev Sergey
  */
 public class AsseblyLine implements IAssemblyLine {
+    BodyLineStep bodyLineStep;
+    ChassisLineStep chassisLineStep;
+    EngineLineStep engineLineStep;
+
+
+    public AsseblyLine(BodyLineStep bodyLineStep, ChassisLineStep chassisLineStep, EngineLineStep engineLineStep){
+        this.bodyLineStep=bodyLineStep;
+        this.chassisLineStep=chassisLineStep;
+        this.engineLineStep=engineLineStep;
+    };
+
+
     @Override
     public IProduct assembleProduct(IProduct iProduct) {
         Product product=(Product)iProduct;
 
-        BodyLineStep bodyLineStep = new BodyLineStep();
-        ChassisLineStep chassisLineStep = new ChassisLineStep();
-        EngineLineStep engineLineStep = new EngineLineStep();
+        bodyLineStep = new BodyLineStep();
+        chassisLineStep = new ChassisLineStep();
+        engineLineStep = new EngineLineStep();
 
         Body body = (Body) bodyLineStep.buildProductPart();
         Chassis chassis = (Chassis) chassisLineStep.buildProductPart();
