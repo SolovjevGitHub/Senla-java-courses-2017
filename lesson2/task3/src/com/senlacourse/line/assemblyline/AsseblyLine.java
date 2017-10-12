@@ -12,37 +12,29 @@ import com.senlacourse.line.entity.Product;
  * Author: Solovjev Sergey
  */
 public class AsseblyLine implements IAssemblyLine {
-    BodyLineStep bodyLineStep;
-    ChassisLineStep chassisLineStep;
-    EngineLineStep engineLineStep;
 
+    private Body body;
+    private Chassis chassis;
+    private Engine engine;
 
-    public AsseblyLine(BodyLineStep bodyLineStep, ChassisLineStep chassisLineStep, EngineLineStep engineLineStep){
-        this.bodyLineStep=bodyLineStep;
-        this.chassisLineStep=chassisLineStep;
-        this.engineLineStep=engineLineStep;
+    public AsseblyLine(Body body, Chassis chassis, Engine engine){
+        this.body=body;
+        this.chassis=chassis;
+        this.engine=engine;
     };
 
 
     @Override
     public IProduct assembleProduct(IProduct iProduct) {
-        Product product=(Product)iProduct;
 
-        bodyLineStep = new BodyLineStep();
-        chassisLineStep = new ChassisLineStep();
-        engineLineStep = new EngineLineStep();
 
-        Body body = (Body) bodyLineStep.buildProductPart();
-        Chassis chassis = (Chassis) chassisLineStep.buildProductPart();
-        Engine engine = (Engine) engineLineStep.buildProductPart();
-
-        product.installFirstPart(body);
-        product.installSecondPart(chassis);
-        product.installThirdtPart(engine);
+        iProduct.installFirstPart(body);
+        iProduct.installSecondPart(chassis);
+        iProduct.installThirdtPart(engine);
 
         System.out.println("Product is created!");
-        System.out.println(product.toString());
+        System.out.println(iProduct.toString());
 
-        return new Product();
+        return iProduct;
     }
 }
